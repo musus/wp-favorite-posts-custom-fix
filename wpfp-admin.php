@@ -27,6 +27,8 @@ if ( isset($_POST['submit']) ) {
 	$wpfp_options['post_per_page'] = htmlspecialchars($_POST['post_per_page']);
 	$wpfp_options['add_posttype'] = htmlspecialchars($_POST['add_posttype']);
 	$wpfp_options['item_tag'] = htmlspecialchars($_POST['item_tag']);
+	$wpfp_options['item_before'] = htmlspecialchars($_POST['item_before']);
+	$wpfp_options['item_after'] = htmlspecialchars($_POST['item_after']);
 
     $wpfp_options['dont_load_js_file'] = '';
     if (isset($_POST['dont_load_js_file']))
@@ -287,6 +289,13 @@ jQuery(document).ready(function($) {
 			<tr>
 				<th><?php _e("Custom Template", "wp-favorite-posts") ?></th><td><textarea name="item_tag" rows="5" cols="50"><?php echo stripslashes($wpfp_options['item_tag']); ?></textarea></td>
 			</tr>
+			<tr>
+				<th><?php _e("Custom Template Before", "wp-favorite-posts") ?></th><td><input type="text" name="item_before" value="<?php echo stripslashes($wpfp_options['item_before']); ?>" /></td>
+			</tr>
+			<tr>
+				<th><?php _e("Custom Template After", "wp-favorite-posts") ?></th><td><input type="text" name="item_after" value="<?php echo stripslashes($wpfp_options['item_after']); ?>" /></td>
+			</tr>
+
 			<tr>
 				<td>
 					<input type="submit" name="submit" class="button button-primary" value="<?php _e('Update options &raquo;'); ?>" />

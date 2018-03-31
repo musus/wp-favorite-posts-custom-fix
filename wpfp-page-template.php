@@ -33,7 +33,7 @@
 	    }
         query_posts($qry);
 
-        echo "<ul>";
+        echo wpfp_get_option( 'item_before' );
         while ( have_posts() ) : the_post();
 	        $fav_permalink = get_permalink();
 	        $fav_title     = get_the_title();
@@ -50,7 +50,7 @@
 	        $fav_item_tags       = str_replace( $fav_replace_setting, $fav_replace_word, $fav_tags );
 	        echo $fav_item_tags;
         endwhile;
-        echo "</ul>";
+	    echo wpfp_get_option( 'item_after' );
 
         echo '<div class="navigation">';
             if(function_exists('wp_pagenavi')) { wp_pagenavi(); } else { ?>

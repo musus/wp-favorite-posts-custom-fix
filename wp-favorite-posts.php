@@ -354,10 +354,12 @@ function wpfp_init() {
     $wpfp_options['opt_only_registered'] = 0;
 	$wpfp_options['add_posttype'] = '';
 	$wpfp_options['with_post_and_page'] = 0;
-	$wpfp_options['item_tag'] = '';
+	$wpfp_options['item_tag'] = "<li><a href=\'%permalink%\' title=\'%title%\'><span>%thumbnail%</span>%title%</a>%remove%</li>";
+	$wpfp_options['item_before'] = '<ul>';
+	$wpfp_options['item_after'] = '</ul>';
     add_option('wpfp_options', $wpfp_options);
 }
-add_action('activate_wp-favorite-posts/wp-favorite-posts.php', 'wpfp_init');
+add_action('activate_wp-favorite-posts-custom-fix/wp-favorite-posts.php', 'wpfp_init');
 
 function wpfp_config() { include('wpfp-admin.php'); }
 
