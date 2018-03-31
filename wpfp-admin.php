@@ -25,6 +25,7 @@ if ( isset($_POST['submit']) ) {
 	$wpfp_options['custom_before_image'] = htmlspecialchars($_POST['custom_before_image']);
 	$wpfp_options['autoshow'] = htmlspecialchars($_POST['autoshow']);
 	$wpfp_options['post_per_page'] = htmlspecialchars($_POST['post_per_page']);
+	$wpfp_options['add_posttype'] = htmlspecialchars($_POST['add_posttype']);
 
     $wpfp_options['dont_load_js_file'] = '';
     if (isset($_POST['dont_load_js_file']))
@@ -264,6 +265,24 @@ jQuery(document).ready(function($) {
             </tr>
         </table>
     </div>
+</div>
+<div class="postbox">
+	<div title="<?php _e("Click to open/close", "wp-favorite-posts"); ?>" class="handlediv">
+		<br>
+	</div>
+	<h3 class="hndle"><span><?php _e('Posttype Settings', 'wp-favorite-posts'); ?></span></h3>
+	<div class="inside" style="display: block;">
+		<table class="form-table">
+			<tr>
+				<th><?php _e("Loop for add posttype", "wp-favorite-posts") ?></th><td><input type="text" name="add_posttype" value="<?php echo stripslashes($wpfp_options['add_posttype']); ?>" /></td>
+			</tr>
+			<tr>
+				<td>
+					<input type="submit" name="submit" class="button button-primary" value="<?php _e('Update options &raquo;'); ?>" />
+				</td>
+			</tr>
+		</table>
+	</div>
 </div>
 <div class="postbox">
     <div title="<?php _e("Click to open/close", "wp-favorite-posts"); ?>" class="handlediv">
