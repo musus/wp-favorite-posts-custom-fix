@@ -1,16 +1,16 @@
 <?php
 /*
-Plugin Name: WP Favorite Posts
-Plugin URI: https://github.com/hberberoglu/wp-favorite-posts
-Description: Allows users to add favorite posts. This plugin use cookies for saving data so unregistered users can favorite a post. Put <code>&lt;?php wpfp_link(); ?&gt;</code> where ever you want on a single post. Then create a page which includes that text : <code>[wp-favorite-posts]</code> That's it!
-Version: 1.6.6
-Author: Huseyin Berberoglu
-Author URI: https://github.com/hberberoglu
+Plugin Name: WP Favorite Posts Custom Fix
+Plugin URI: https://github.com/musus/wp-favorite-posts-custom-fix
+Description: This plugin is fork from WP Favorite Posts Custom.Allows users to add favorite posts. This plugin use cookies for saving data so unregistered users can favorite a post. Put <code>&lt;?php wpfp_link(); ?&gt;</code> where ever you want on a single post. Then create a page which includes that text : <code>[wp-favorite-posts]</code> That's it!
+Version: 1.0
+Author: Susumu Seino
+Author URI: https://susu.mu
 
 */
 
 /*
-    Copyright (c) 2009 Hüseyin Berberoğlu (hberberoglu@gmail.com)
+    Copyright (c) 2018 Susumu Seino (seino@susu.mu)
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
