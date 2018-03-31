@@ -353,6 +353,7 @@ function wpfp_init() {
     $wpfp_options['autoshow'] = '';
     $wpfp_options['opt_only_registered'] = 0;
 	$wpfp_options['add_posttype'] = '';
+	$wpfp_options['with_post_and_page'] = 0;
     add_option('wpfp_options', $wpfp_options);
 }
 add_action('activate_wp-favorite-posts/wp-favorite-posts.php', 'wpfp_init');

@@ -39,6 +39,10 @@ if ( isset($_POST['submit']) ) {
     if (isset($_POST['opt_only_registered']))
         $wpfp_options['opt_only_registered'] = htmlspecialchars($_POST['opt_only_registered']);
 
+	$wpfp_options['with_post_and_page'] = '';
+	if (isset($_POST['with_post_and_page']))
+		$wpfp_options['with_post_and_page'] = htmlspecialchars($_POST['with_post_and_page']);
+
     update_option('wpfp_options', $wpfp_options);
 }
 $message = "";
@@ -275,6 +279,9 @@ jQuery(document).ready(function($) {
 		<table class="form-table">
 			<tr>
 				<th><?php _e("Loop for add posttype", "wp-favorite-posts") ?></th><td><input type="text" name="add_posttype" value="<?php echo stripslashes($wpfp_options['add_posttype']); ?>" /></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" value="1" <?php if ($wpfp_options['with_post_and_page'] == '1') echo "checked='checked'"; ?> name="with_post_and_page" id="with_post_and_page" /> <label for="with_post_and_page">With Post and Page</label></td>
 			</tr>
 			<tr>
 				<td>
