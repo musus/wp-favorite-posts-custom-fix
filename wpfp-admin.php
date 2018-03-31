@@ -26,6 +26,7 @@ if ( isset($_POST['submit']) ) {
 	$wpfp_options['autoshow'] = htmlspecialchars($_POST['autoshow']);
 	$wpfp_options['post_per_page'] = htmlspecialchars($_POST['post_per_page']);
 	$wpfp_options['add_posttype'] = htmlspecialchars($_POST['add_posttype']);
+	$wpfp_options['item_tag'] = htmlspecialchars($_POST['item_tag']);
 
     $wpfp_options['dont_load_js_file'] = '';
     if (isset($_POST['dont_load_js_file']))
@@ -282,6 +283,9 @@ jQuery(document).ready(function($) {
 			</tr>
 			<tr>
 				<td><input type="checkbox" value="1" <?php if ($wpfp_options['with_post_and_page'] == '1') echo "checked='checked'"; ?> name="with_post_and_page" id="with_post_and_page" /> <label for="with_post_and_page">With Post and Page</label></td>
+			</tr>
+			<tr>
+				<th><?php _e("Custom Template", "wp-favorite-posts") ?></th><td><textarea name="item_tag" rows="5" cols="50"><?php echo stripslashes($wpfp_options['item_tag']); ?></textarea></td>
 			</tr>
 			<tr>
 				<td>

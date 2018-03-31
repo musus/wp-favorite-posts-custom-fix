@@ -32,12 +32,23 @@
 		    }
 	    }
         query_posts($qry);
-        
+
         echo "<ul>";
         while ( have_posts() ) : the_post();
-            echo "<li><a href='".get_permalink()."' title='". get_the_title() ."'>" . get_the_title() . "</a> ";
-            wpfp_remove_favorite_link(get_the_ID());
-            echo "</li>";
+	        $fav_permalink = get_permalink();
+	        $fav_title     = get_the_title();
+	        if ( has_post_thumbnail() ) {
+		        $fav_thumbnail = get_the_post_thumbnail();
+	        } else {
+		        $fav_thumbnail = '<img src="' . plugins_url() . '/wp-favorite-posts-custom-fix/img/no_image.png" >';
+	        }
+	        $fav_get_id          = get_the_id();
+	        $fav_remove          = "<a id='rem_" . $fav_get_id . "' class='wpfp-link remove-parent' href='?wpfpaction=remove&amp;page=1&amp;postid=" . $fav_get_id . "' title='" . wpfp_get_option( 'rem' ) . "' rel='nofollow'>" . wpfp_get_option( 'rem' ) . "</a>";
+	        $fav_tags            = wpfp_get_option( 'item_tag' );
+	        $fav_replace_setting = array( '%permalink%', '%title%', "%thumbnail%", '%remove%' );
+	        $fav_replace_word    = array( $fav_permalink, $fav_title, $fav_thumbnail, $fav_remove );
+	        $fav_item_tags       = str_replace( $fav_replace_setting, $fav_replace_word, $fav_tags );
+	        echo $fav_item_tags;
         endwhile;
         echo "</ul>";
 
