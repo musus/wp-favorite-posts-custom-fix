@@ -23,6 +23,9 @@
         // custom post type support can easily be added with a line of code like below.
 	    if ( ! empty( $post_type_setting ) ) {
 		    $qry['post_type'] = $post_type_setting;
+		    if ( wpfp_get_option( 'with_post_and_page' ) == "1" ) {
+			    $qry['post_type'] = array('post','page',$post_type_setting);
+			}
 	    }
         query_posts($qry);
         
