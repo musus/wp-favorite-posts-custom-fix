@@ -19,13 +19,17 @@
         $page = intval(get_query_var('paged'));
         $post_type_setting = wpfp_get_option('add_posttype');
 
-        $qry = array('post__in' => $favorite_post_ids, 'posts_per_page'=> $post_per_page, 'orderby' => 'post__in', 'paged' => $page);
-        // custom post type support can easily be added with a line of code like below.
+	    $qry = array( 'post__in'       => $favorite_post_ids,
+	                  'posts_per_page' => $post_per_page,
+	                  'orderby'        => 'post__in',
+	                  'paged'          => $page
+	    );
+	    // custom post type support can easily be added with a line of code like below.
 	    if ( ! empty( $post_type_setting ) ) {
 		    $qry['post_type'] = $post_type_setting;
 		    if ( wpfp_get_option( 'with_post_and_page' ) == "1" ) {
-			    $qry['post_type'] = array('post','page',$post_type_setting);
-			}
+			    $qry['post_type'] = array( 'post', 'page', $post_type_setting );
+		    }
 	    }
         query_posts($qry);
         
