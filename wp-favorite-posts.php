@@ -300,7 +300,7 @@ function wpfp_content_filter($content) {
         $content = str_replace('[wpfp-link]', wpfp_link(1), $content);
     }
 
-    if (is_single()) {
+    if (is_singular()) {
         if (wpfp_get_option('autoshow') == 'before') {
             $content = wpfp_link(1) . $content;
         } else if (wpfp_get_option('autoshow') == 'after') {
