@@ -407,7 +407,7 @@ function wpfp_init() {
 	add_option( 'wpfp_options', $wpfp_options );
 }
 
-add_action( 'activate_wp-favorite-posts-custom-fix/wp-favorite-posts.php', 'wpfp_init' );
+register_activation_hook( 'wp-favorite-posts-custom-fix/wp-favorite-posts.php', 'wpfp_init' );
 
 function wpfp_config() {
 	include( 'wpfp-admin.php' );
